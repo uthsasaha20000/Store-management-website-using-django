@@ -1,0 +1,33 @@
+<html>
+<head>
+  <title>Store management</title>
+</head>
+<link rel="stylesheet" href="static/css/style.css"/>
+<body>
+
+<div class="login-container">
+  <h2 style="text-align:left;">Login</h2>
+  <form method="post" action="/">
+
+    {% csrf_token %}
+    <input style="width:200;height:30;" type="text" placeholder="  Username" name="Username"  required>
+    <input style="width:200;height:20;" type="password" placeholder="Password" name="Password" required>
+  </br>
+    <input type="submit" value="Login">
+  </form>
+
+</div>
+<div class="container">
+</br>
+  
+</br>
+</br>
+</br>
+  <a class="signup-link" href="/user_signin_form/">Signup</a>
+</div>
+<a class="adminbutton" href="/admin">Admin Section </a>
+</body>
+
+
+
+</html>

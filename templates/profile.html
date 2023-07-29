@@ -1,0 +1,81 @@
+<html>
+<head>
+  <title>user profile</title>
+  <style>
+  body{
+    font-family: Arial, sans-serif;
+    
+    background-position: center;
+    background-color: #5aa894;
+  }
+  .circle {
+    border-radius: 50%;
+    
+    height:150px;
+    width:150px;
+    font-size:50px;
+  }
+  .navbar {
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    margin-top:0px;
+    
+  }
+  .navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  .navbar li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  .navbar li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  .logoutbutton{
+    text-decoration:none;
+    background-color:blue;
+    padding:10px;
+    border-radius:20px;
+  }
+  .logoutbutton:hover{
+    background-color: #8dc92d;
+  }
+</style>
+</head>
+ 
+<body>
+  <div class="navbar">
+    <ul>
+      <li><a href="/homepage/{{user.username}}">home</a></li>
+      <li><a href="/profile/{{user.username}}">Profile</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+
+   <h3>User Profile </h3>
+</br>
+ <h5>User name: {{user.username}}</h5>
+  
+    <img src="{{user.image.url}}"class="circle">
+  
+</br>
+</br>
+Age={{user.age}}
+</br>
+</br>
+Email={{user.email}}
+</br>
+</br>
+City ={{user.city}}
+</br>
+</br>
+<a href="/" class="logoutbutton">Logout</a>
+
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home Page</title>
+
+  <style>
+  body{
+    font-family: Arial, sans-serif;
+    
+    background-position: center;
+    background-color: #5aa894;
+  }
+  .search-container {
+    text-align: center;
+    margin-top: 30px;
+  }
+  .search-input {
+    padding: 5px;
+    width: 300px;
+    font-size: 16px;
+  }
+  .search-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  .navbar {
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    margin-top:0px;
+    
+  }
+  .navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  .navbar li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  .navbar li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  .container {
+    display:flex;
+    min-height:80vh;
+    margin:23px auto;
+    margin-right:150px;
+    position:center;
+    width: 80%;
+    border-radius:12px;
+    overflow: auto;
+    padding:0px;
+    background-color: lightgray;
+  }
+  .boxes{
+    display:block;
+    min-height:5px;
+    
+    height:80px;
+    background-color: white;
+    color:white;
+   font-family: 'Varela Round', sans-serif;
+   
+   width:159px;
+   margin:20px;
+   
+   border-radius: 12px;
+   padding: 60px;
+   overflow: auto;
+   
+   font-size:20px
+   
+}
+
+</style>
+</head>
+<body>
+  <div class="navbar">
+    <ul>
+      <li><a href="/homepage/{{user.username}}">home</a></li>
+      <li><a href="/profile/{{user.username}}">Profile</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+  <div class="search-container">
+    <form  method="POST">
+      {% csrf_token %}
+      <input type="text" name="search" class="search-input" placeholder="Search...">
+      <button type="submit" class="search-button">Search</button>
+    </form>
+  </div>
+  <div class="container">
+    {% for p in products %}
+   
+    <div class="boxes">
+      <img src="{{p.product_image.url}}"style="width: 100px; height:70px;">
+    <div>
+    <label style="background-color:black;"> product : {{p.product_name}}</label>
+    </br>
+  
+   
+   <label style="background-color:black;"> price :{{p.price}}</label>
+  </div>
+
+ 
+    </div>
+   {% empty %}
+   </br>
+   Sorry no such a  record exist in database
+  {% endfor %}
+
+   
+  </div>
+
+</body>
+
+</html>
