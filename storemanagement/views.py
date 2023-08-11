@@ -8,10 +8,12 @@ from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import User
 
-def homepage(request,username):
+def homepage(request):
 
   data={}
-  user= User_infoo.objects.get(username=username)
+  #user= User_infoo.objects.get(username=username)
+  user1=request.session.get('username')
+  user=User_infoo.objects.get(username=user1)
   if user is not None:
     obj=Product.objects.all()
     if request.method=="POST":
@@ -29,10 +31,12 @@ def homepage(request,username):
   
    
    
-def profile(request,username):
+def profile(request):
  
- user= User_infoo.objects.get(username=username)
- print(user.username)
+ #user= User_infoo.objects.get(username=username)
+ user1=request.session.get('username')
+ user=User_infoo.objects.get(username=user1)
+ #print(user.username)
 
  data={
   'user':user
@@ -57,9 +61,12 @@ def userlogin(request):
     user= User_infoo.objects.get(username=Username)
     if user is not None:
       if user.password==Password:
-        username=user.username
+        #username=user.username
+        request.session['userid']=user.id
+        request.session['username']=user.username
+        username=request.session['username']
 
-        return redirect(f'/homepage/{username}')
+        return redirect('homepage/')
     else:
       return redirect('/')
     
@@ -73,9 +80,9 @@ def userlogin(request):
  return render(request,"login.html")
 
 def userlogout(request):
-  logout(request)
+   request.session.clear()
   
-  return redirect('/')
+   return redirect('/')
 
 
      

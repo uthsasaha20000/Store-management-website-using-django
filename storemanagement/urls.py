@@ -29,8 +29,8 @@ urlpatterns = [
     path('',views.userlogin),
     path('user_signin_form/',views.signup_page),
     path('saveuserform/',views.save_user_info,name="saveuserform"),   
-    path('homepage/<str:username>',views.homepage,name="homepage"),
-    path('profile/<str:username>',views.profile,name="profile"),
+    path('homepage/',views.homepage,name="homepage"),
+    path('profile/',views.profile,name="profile"),
     path('logout/',views.userlogout,name="logout")
 ]
 
