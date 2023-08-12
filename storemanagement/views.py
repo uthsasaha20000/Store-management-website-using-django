@@ -44,10 +44,6 @@ def profile(request):
  return render(request,"profile.html",data)
 
  
-  
- 
-  
-  
 
 def userlogin(request):
  data={}
@@ -140,6 +136,10 @@ def save_user_info(request):
 
 
   return render(request,"login.html")
+
+
+#def cart(request):
+
 
 
 

@@ -1,5 +1,6 @@
 <html>
 <head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <title>user profile</title>
   <style>
   body{
@@ -38,6 +39,7 @@
   }
   .logoutbutton{
     text-decoration:none;
+    color:white;
     background-color:blue;
     padding:10px;
     border-radius:20px;
@@ -66,13 +68,16 @@
   
 </br>
 </br>
-Age={{user.age}}
+Age:     {{user.age}}
 </br>
 </br>
-Email={{user.email}}
+Email:  {{user.email}}
 </br>
 </br>
-City ={{user.city}}
+City:   {{user.city}}
+</br>
+</br>
+Gender:  {{user.gender}}
 </br>
 </br>
 <a href="/" class="logoutbutton">Logout</a>
