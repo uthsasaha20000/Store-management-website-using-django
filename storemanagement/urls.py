@@ -31,7 +31,7 @@ urlpatterns = [
     path('saveuserform/',views.save_user_info,name="saveuserform"),   
     path('homepage/',views.homepage,name="homepage"),
     path('profile/',views.profile,name="profile"),
-    #path('cart/',views.cart,name="cart"),
+    path('cart/<str:product>',views.cart,name="cart"),
     path('logout/',views.userlogout,name="logout")
 ]
 

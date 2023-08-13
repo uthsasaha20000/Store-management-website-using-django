@@ -138,8 +138,16 @@ def save_user_info(request):
   return render(request,"login.html")
 
 
-#def cart(request):
+def cart(request,product):
+  obj=Product.objects.get(product_name=product)
+  print(obj.price)
+  data={
+    'product':obj
+  }
+  return render(request,"cartpage.html",data)
 
+
+  
 
 
 

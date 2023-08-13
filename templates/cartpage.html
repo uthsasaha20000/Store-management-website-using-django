@@ -35,6 +35,16 @@
         color: #fff;
         text-decoration: none;
       }
+      .container{
+        height:70%;
+      }
+      #customRange2{
+        width:30%;
+      }
+      .img-fluid{
+        height:200px;
+        width:200px;
+      }
     </style>
   </head>
   <body>
@@ -49,7 +59,41 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <div class="container bg-light mt-5">
-      <img src="" class="img-fluid" alt="...">
+      <img src="{{product.product_image.url}}" class="img-fluid" alt="...">
+    </br>
+  </br>
+  Product name: {{product.product_name}}
+</br>
+  Price: {{product.price}}
+</br>
+    </br>
+  </br>
+  <label for="customRange2" class="form-label">Select  Quantity</label>
+</br>
+</br>
+<input type="range" class="form-range" min="0" max="10" id="customRange2">
+</br>
+</br>
+<p id="rangeValue">Unit: 0</p>
+</br>
+</br>
+<p id="amount">Total Cost: 0 BDT</p>
+<script>
+  // Get references to the range input and value display elements
+  const rangeInput = document.getElementById('customRange2');
+  const rangeValue = document.getElementById('rangeValue');
+  const totalamount = document.getElementById('amount');
+  const price = {{product.price}} 
+
+  // Add an event listener to the range input to update the value display
+  rangeInput.addEventListener('input', function() {
+    const value = rangeInput.value;
+    let amount = price*value;
+    rangeValue.textContent = `Unit: ${value}`;
+    totalamount.textContent = `Total Cost: ${amount} BDT`;
+  });
+</script>
+<a href="" class="btn btn-success mb-5" style="padding:2px;">Add to cart</a>
     </div>
 
 

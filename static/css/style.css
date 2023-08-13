@@ -2,7 +2,7 @@
 body {
     font-family: Arial, sans-serif;
     
-    background-image: url('b.png');
+    background-image: url('bg.png');
     background-repeat: no-repeat;
   
     background-size: 60%;
@@ -73,8 +73,8 @@ body {
   
       .signup-link {
         display: block;
-        margin: -20px auto;
-        margin-left:1000px;
+        margin: -50px auto;
+        margin-left:1150px;
         max-width: 100px;
         padding: 10px 20px;
         background-color: #371fa3;
