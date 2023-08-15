@@ -146,6 +146,10 @@ def cart(request,product):
   }
   return render(request,"cartpage.html",data)
 
+def navcart(request):
+  param1 = request.GET.get('param3', '')
+  print(param1,"aaaa")
+  return render(request,"navcart.html")
 
   
 

@@ -12,8 +12,12 @@
     background-position: center;
     background-color: #5aa894;
   }
+  .card-img-top{
+    width:200px;
+  }
   img{
     height:160px;
+    width:100px;
   }
   .search-container {
     text-align: center;
@@ -53,7 +57,7 @@
     color: #fff;
     text-decoration: none;
   }
-  .container {
+  {% comment %} .container {
     display:flex;
     min-height:80vh;
     margin:23px auto;
@@ -64,26 +68,8 @@
     overflow: auto;
     padding:0px;
     background-color: lightgray;
-  }
-  .boxes{
-    display:block;
-    min-height:5px;
-    
-    height:80px;
-    background-color: white;
-    color:white;
-   font-family: 'Varela Round', sans-serif;
-   
-   width:159px;
-   margin:20px;
-   
-   border-radius: 12px;
-   padding: 60px;
-   overflow: auto;
-   
-   font-size:20px
-   
-}
+  } {% endcomment %}
+
 
 </style>
 </head>
@@ -93,8 +79,8 @@
     <ul>
       <li><a href="/homepage/">home</a></li>
       <li><a href="/profile/">Profile</a></li>
-      <li><a href="#">Services</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="/navcart/">Cart</a></li>
+ 
     </ul>
   </div>
   <div class="search-container">
@@ -104,29 +90,26 @@
       <button type="submit" class="search-button">Search</button>
     </form>
   </div>
-  <div class="container">
-    {% for p in products %}
-   
-    
- 
-  <div class="card " style="margin-left:100px;margin-top:20px;margin-right:50px;margin-bottom:20px;width: 10rem;height:11rem;">
-    <img src="{{p.product_image.url}}" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">product: {{p.product_name}}</h5>
-      <p class="card-text">Price :{{p.price}} BDT</p>
-      <a href="{% url 'cart' p.product_name %}" class="btn btn-primary" style="padding:2px;">Add to cart</a>
+  <div class="container mt-5">
+    <div class="row">
+        {% for p in products %}
+            <div class="col-md-4 mb-4">
+              
+                
+                <div class="card" style="width:300px;" >
+                  <img src="{{p.product_image.url}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Product Name: {{p.product_name }}</h5>
+                        <p class="card-text"> Price: {{ p.price }}</p>
+                        <a href="{% url 'cart' p.product_name %}" class="btn btn-primary" style="padding:2px;">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+          
+        {% endfor %}
     </div>
-  </div>
+</div>
 
- 
-  
-   {% empty %}
-   </br>
-   Sorry no such a item exists in database
-  {% endfor %}
-
-   
-  </div>
 
 </body>
 

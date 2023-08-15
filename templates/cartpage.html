@@ -52,8 +52,8 @@
       <ul>
         <li><a href="/homepage/">home</a></li>
         <li><a href="/profile/">Profile</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="/navcart/">Cart</a></li>
+      
       </ul>
     </div>
 
@@ -84,7 +84,8 @@
   const rangeValue = document.getElementById('rangeValue');
   const totalamount = document.getElementById('amount');
   const price = {{product.price}} 
-
+  
+  
   // Add an event listener to the range input to update the value display
   rangeInput.addEventListener('input', function() {
     const value = rangeInput.value;
@@ -93,7 +94,7 @@
     totalamount.textContent = `Total Cost: ${amount} BDT`;
   });
 </script>
-<a href="" class="btn btn-success mb-5" style="padding:2px;">Continue</a>
+<a href="/navcart/?param1={{product.product_name}}&param2=value&param3={{amount}}" class="btn btn-success mb-5" style="padding:2px;">Continue</a>
     </div>
 
 

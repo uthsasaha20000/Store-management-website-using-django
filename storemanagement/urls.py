@@ -20,7 +20,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from user_info.models import User_infoo
 
-admin.site.site_header = "Shop Owner's Section"
+admin.site.site_header = "Admin's Section"
 admin.site.site_title = "Admin Portal"
 admin.site.index_title = "Here owner can manage products and track orders and users."
 
@@ -32,6 +32,7 @@ urlpatterns = [
     path('homepage/',views.homepage,name="homepage"),
     path('profile/',views.profile,name="profile"),
     path('cart/<str:product>',views.cart,name="cart"),
+    path('navcart/',views.navcart),
     path('logout/',views.userlogout,name="logout")
 ]
 
