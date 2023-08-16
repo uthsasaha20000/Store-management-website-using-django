@@ -4,6 +4,7 @@ from requests import request
 from django.shortcuts import render,redirect
 from user_info.models import User_infoo
 from product.models import Product
+from cart.models import Cart
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import User
@@ -144,11 +145,23 @@ def cart(request,product):
   data={
     'product':obj
   }
+  ob=Cart(p_name=obj.product_name)
+  print(obj.product_name)
+  ob.save()
   return render(request,"cartpage.html",data)
 
 def navcart(request):
-  param1 = request.GET.get('param3', '')
-  print(param1,"aaaa")
+  obj=Cart.objects.all()
+  data={
+    'product':obj
+  }
+
+  
+  return render(request,"navcart.html",data)
+
+def deletecart(request):
+  Cart.objects.all().delete()
+
   return render(request,"navcart.html")
 
   

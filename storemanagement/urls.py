@@ -33,6 +33,7 @@ urlpatterns = [
     path('profile/',views.profile,name="profile"),
     path('cart/<str:product>',views.cart,name="cart"),
     path('navcart/',views.navcart),
+    path('deletecart/',views.deletecart),
     path('logout/',views.userlogout,name="logout")
 ]
 

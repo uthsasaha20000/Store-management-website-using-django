@@ -71,6 +71,8 @@
   <label for="customRange2" class="form-label">Select  Quantity</label>
 </br>
 </br>
+<form method="post" action="/navcart/">
+  {% csrf_token %}
 <input type="range" class="form-range" min="0" max="10" id="customRange2">
 </br>
 </br>
@@ -94,7 +96,8 @@
     totalamount.textContent = `Total Cost: ${amount} BDT`;
   });
 </script>
-<a href="/navcart/?param1={{product.product_name}}&param2=value&param3={{amount}}" class="btn btn-success mb-5" style="padding:2px;">Continue</a>
+<button type="submit" class="btn btn-success mb-5" style="padding:2px;">Continue</button>
+</form>
     </div>
 
 
