@@ -62,6 +62,8 @@
   <div class="container">
      {% for p in product %}
      {{p.p_name}} </br>
+     {% empty%}
+      No products added to Cart
      {% endfor %}
   </div>
 
